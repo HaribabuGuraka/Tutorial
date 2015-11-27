@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="user" class="com.my.User" >
+		<property name="name" value="Eswar" />
+		<property name="age" value="24"/>
+		<property name="country" value="India"/>
+		<property name="job" value="software"/>
+		<property name="address">
+			<ref local="add"></ref>
+		</property>
+	</bean>
+	
+	
+	<bean id="add" class="com.my.Address">
+		<property name="location" value="SanathNagar" />
+		<property name="landlineno" value="33333"/>
+		<property name="personal">
+		   <ref local="pers"/>
+		</property>
+		
+	</bean>
+	<bean id="pers" class="com.my.Personal">
+		<property name="jobdesc" value="software"/>
+		<property name="designation" value="engineer"/>
+	</bean>
+	
+	</beans>

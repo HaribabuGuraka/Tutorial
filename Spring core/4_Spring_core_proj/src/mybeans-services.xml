@@ -1,0 +1,40 @@
+<!-- Spring Beans XML Document -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" 
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p">
+
+<!-- mybeans-services.xml -->
+<bean name="adao" 
+class="com.examples.spring.AccountsDAO"/>
+
+<!-- Define a spring bean -->
+<bean id="ws" name="withdrawService" 
+class="com.examples.spring.WithdrawService"
+p:checkMinBal-ref="cmb">
+ <constructor-arg>
+  <ref bean="adao"/>
+ </constructor-arg>
+</bean>
+
+<bean id="cmb" class="com.examples.spring.CheckMinBal"/>
+
+<bean id="ds"  name="depositService"
+class="com.examples.spring.DepositService">
+ <constructor-arg>
+  <ref bean="adao"/>
+ </constructor-arg>
+</bean>
+<bean id="ds1" 
+class="com.examples.spring.DepositService">
+ <constructor-arg>
+  <ref bean="adao"/>
+ </constructor-arg>
+</bean>
+
+<bean id="taService" 
+class="com.examples.spring.TransferAmountService"
+autowire="byName"/>
+
+<!-- p:withdrawService-ref="ws"
+p:depositService-ref="ds" -->
+</beans>

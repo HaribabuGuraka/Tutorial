@@ -1,0 +1,281 @@
+
+
+	In Adv Java
+
+		Servlet			:	Controller ( Business Logic)
+
+		JSP(HTML+Javascript)	:	UI  (view) 
+
+		DB			:	JDBC(Java DataBase Connectivity)  (Model)
+
+			
+				Model---View---Controller   ( Design Pattern)
+
+
+		Design Patterns
+		-----------------
+
+
+		Singleton
+		FrontController
+		factory 
+		Observer 
+		Abstract factory
+		DTO(Data Transfor Object)
+		Dao(Data Access Object)
+		Connection Polling
+		
+		 
+
+
+		Frameworks are nothing but, set of design patterns.
+
+		struts ( MVC)
+
+
+			View	:	JSP, JSTL, Javascript
+
+			Controller:	Servlets
+
+			Model	:	EJB(Enterprise JavaBeans)----DB Logic(ex:-Instead of JDBC)
+
+
+		EJBs are playing key role in enterprise applications.
+
+	Types of applications  :
+	----------------------------
+	
+	1)	Domestic Application	:	Within specific environment, these application can use.
+						i.e., these can use only within intranet environment
+
+	2)	Enterprise Application	:	These application can run in internet environment.
+
+				
+		Ex:	HDFC(Uma)		-  owner
+
+		1)	FlipKart(Bhargav)	-   isCustomerValid()
+						    balanceRequired()
+						    balanceTransfor()
+
+
+		2)	Amazon(Mounika)		-   isCustomerValid()
+						    balanceRequired()
+						    balanceTransfor()
+
+						    balTransforEMI()
+
+		3)	irctc(Ravi)		-   isCustomerValid()
+						    balanceRequired()
+						    balanceTransfor()
+
+						    moneyback()
+
+
+		4)	Anusha(ICICI)		-   isCustomerValid()
+						    balanceRequired()
+						    balanceTransfor()
+
+						    custmerTrackRecc()
+
+
+		Below business logics r reuseable components .
+
+		isCustomerValid()
+		balanceRequired()	---->	RMI
+		balanceTransfor() 
+						
+		
+		Above busines methods are executing remotely from another systems.
+		
+		RMI---->	Remote method Invocation.
+				This will work only within intranet
+
+				needs to maintain some secrurities to their business methods.
+
+		EJB--->      	Enterprise Java Beans
+
+				This will work only within internet.
+
+
+		If it is intenet application i.e., EJB.
+
+		*** without using EJB, can not implement an internet application.
+
+					Enterprise Java Beans
+						|
+						|
+						|
+		-----------------------------------------------------------------
+		|				|				|
+           Session Beans		  Message Driven		     Entity
+	   a)stateless			  a)MDB(Message DrivenBeans)	    a)BMP(Bean Managed Persistence)
+	   b)stateful							    b)CMP(Contaner Managed Persistence)
+
+	1)  as a java programmer, to implement EJB
+		initially needs to understand life cycle of each component.
+
+		Here each beans providing differnt life cycles.
+
+		Here life cycles means having some methods(call back methods).
+
+
+
+	There are lot of drawbacks with EJB component :
+	------------------------------------------------
+
+	1)	To understand/implement an EJB, it is too dificult to the programmer.	
+
+	2)	EJBs are must run within Application Servers.
+
+		WebLogic, Websphere.....
+
+		But these servers expensive than webservers(tomcat, j2ee, etc.,)
+
+	
+
+
+	Spring  :
+	----------
+		
+
+		without using EJB, how can implement enterprise application.
+
+	1)	without using EJB, implementing enterprise application.
+
+		By using simple POJO(Plain Oriented Java objects)...
+		objects with setter and getter methods.
+
+	2)	Now no need with application servers.
+
+	3)	IOC(Inversion Of Controller)
+
+		In other applications, initially the programmer created objects to every functionalityh.
+		we are not sure whether all functionallities will use or not.
+
+		This is drawback with existing frameworks.
+
+		This feature providing creating objects at run-time. i..e.,
+
+		Spring framework will take responsibility to create objects at run-time.
+
+			Just declare all the business classes within one xml.
+			then spring containere will take care to create objects at run time.
+
+		and calling Dependency Injection(DI).
+
+	4)	Spring is Layered Architecture.
+
+			According to programmer requirement, can use specific module in spring.
+
+		Modules of Spring  :    
+
+		Note  :   IOC mechanism is common for all modules.
+			
+			*Spring Core  
+			*Spring MVC
+			*Spring JDBC
+			*Spring Jobs & Scheduler
+			*Spring web flow
+			*Spring ORM
+			Spring Portal & portlets
+			*Spring OSGI
+
+
+			coverd modules  :
+
+			Spring core
+			Spring mvc
+			Spring jdbc
+			Spring ORM	:	Hibernate
+
+			
+
+	Spring core  :
+	-------------------
+
+		going to discuss about DI(Dependency Injection).
+
+		IOC :   No need to create objects at compile time.
+
+		Spring providing two containers to implement IOC(DI).
+
+		1)   	BeanFactory		:   domestic application.
+		2)	ApplicationContext	:   enterprise applications
+
+	
+		diff between BeanFactory & ApplicationContext :
+		----------------------------------------------
+		ApplicationContext additionally having listener and internalization features.	
+
+
+	As a programmer what we have to do ?
+
+	We have to define all services in xml file and load that xml file into spring containers.
+
+	
+	Here Dependency Injection(Object creation) can be implement using below ways :
+
+	1)	By using setter methods
+
+	2)	By using Constructors
+
+	
+   Spring jdbc :	It is similar JDBC concepts.
+   ---------------
+
+
+		JDBC   :
+
+				Statement/PreparedStatement--->  using to execute SQL commands.
+
+					execute
+					executeUpdate
+					executeQuery
+			
+
+		
+		JdbcTemplate
+						--->   Datasource
+		NamedParameterJdbcTemplate
+		
+		Here jdbctemplate/NamedParameterJdbcTemplate  are similar to Statement/PreparedStatement		
+
+		In Spring, for retrieving the data mostly we are using below classes
+
+			RowMapper
+			RowCallBackHandler
+
+	
+
+		Datasource   --->  Database connectivity parameters
+
+		
+
+		
+
+	
+
+		
+			
+				
+
+		
+		
+
+
+		
+			
+
+						    
+						    
+		
+		
+	
+
+		
+
+		
+
+	
+
+				
